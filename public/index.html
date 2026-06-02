@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Инкар ✦</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream: #faf7f2;
+  --warm: #f0ebe1;
+  --text: #1a1714;
+  --muted: #8a8078;
+  --accent: #c9a96e;
+  --border: rgba(0,0,0,0.08);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 24px;
+  position: relative;
+  background: linear-gradient(160deg, #faf7f2 0%, #f5ede0 100%);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,169,110,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 28px;
+  font-family: 'Inter', sans-serif;
+}
+
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(72px, 14vw, 140px);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.hero-name em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-sub {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 340px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  animation: float 2.5s ease-in-out infinite;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ABOUT */
+.about {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 100px 24px;
+  text-align: center;
+}
+
+.section-label {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+  display: block;
+}
+
+.about-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+.about-text {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+.divider {
+  width: 60px;
+  height: 1px;
+  background: var(--accent);
+  margin: 60px auto;
+  opacity: 0.4;
+}
+
+/* TRAITS */
+.traits {
+  background: var(--warm);
+  padding: 80px 24px;
+}
+
+.traits-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.traits-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 300;
+  margin-bottom: 56px;
+}
+
+.traits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.trait {
+  background: var(--warm);
+  padding: 36px 24px;
+  text-align: center;
+}
+
+.trait-icon {
+  font-size: 28px;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.trait-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.trait-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* COMMENTS */
+.comments-section {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 100px 24px;
+}
+
+.comments-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.comments-sub {
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 48px;
+}
+
+.comment-card {
+  border: 1px solid var(--border);
+  padding: 28px 32px;
+  margin-bottom: 16px;
+  background: #fff;
+  position: relative;
+  animation: fadeUp 0.4s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.comment-author {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.comment-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.comment-date {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 14px;
+}
+
+.no-comments {
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+  padding: 40px 0;
+  font-style: italic;
+}
+
+/* LOGIN / FORM */
+.inkar-zone {
+  background: var(--warm);
+  border: 1px solid var(--border);
+  padding: 40px 32px;
+  margin-top: 48px;
+  text-align: center;
+}
+
+.inkar-zone h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 6px;
+}
+
+.inkar-zone p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+  max-width: 360px;
+  margin: 0 auto 16px;
+}
+
+input[type="password"],
+textarea {
+  width: 100%;
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 12px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+  resize: none;
+}
+
+input[type="password"]:focus,
+textarea:focus {
+  border-color: var(--accent);
+}
+
+textarea {
+  min-height: 100px;
+  display: block;
+  max-width: 480px;
+  margin: 0 auto 16px;
+}
+
+.btn {
+  background: var(--text);
+  color: var(--cream);
+  border: none;
+  padding: 12px 32px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn:hover { background: var(--accent); }
+.btn-sm { padding: 10px 24px; font-size: 11px; }
+
+.error-msg {
+  font-size: 12px;
+  color: #c0392b;
+  margin-top: 8px;
+}
+
+.logged-in { display: none; }
+.logged-in.show { display: block; }
+.login-form.hide { display: none; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px 24px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Посвящается</p>
+  <h1 class="hero-name">Инк<em>ар</em></h1>
+  <p class="hero-sub">Человек, чья улыбка меняет настроение комнаты — просто войдя в неё.</p>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <span class="section-label">О ней</span>
+  <p class="about-quote">«Есть люди, рядом с которыми хочется быть лучше»</p>
+  <p class="about-text">Инкар — это редкое сочетание красоты и глубины. Она умеет слушать так, будто ты единственный человек в мире. Смеётся легко и искренне. В ней есть что-то настоящее — то, что сейчас редкость.</p>
+  <div class="divider"></div>
+</section>
+
+<!-- TRAITS -->
+<section class="traits">
+  <div class="traits-inner">
+    <span class="section-label">Какая она</span>
+    <h2 class="traits-title">Всё, что делает её собой</h2>
+    <div class="traits-grid">
+      <div class="trait">
+        <span class="trait-icon">✦</span>
+        <div class="trait-name">Красивая</div>
+        <div class="trait-desc">Внешне и внутри — одинаково.</div>
+      </div>
+      <div class="trait">
+        <span class="trait-icon">◇</span>
+        <div class="trait-name">Добрая</div>
+        <div class="trait-desc">Никогда не пройдёт мимо, если кому-то нужна помощь.</div>
+      </div>
+      <div class="trait">
+        <span class="trait-icon">○</span>
+        <div class="trait-name">Умная</div>
+        <div class="trait-desc">Разговор с ней — всегда что-то новое.</div>
+      </div>
+      <div class="trait">
+        <span class="trait-icon">△</span>
+        <div class="trait-name">Особенная</div>
+        <div class="trait-desc">Таких больше не делают.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMENTS -->
+<section class="comments-section">
+  <span class="section-label">Слова</span>
+  <h2>Что она думает о себе</h2>
+  <p class="comments-sub">Только Инкар может оставить здесь слово</p>
+
+  <div id="commentsList"></div>
+
+  <!-- INKAR ZONE -->
+  <div class="inkar-zone">
+    <div class="login-form" id="loginForm">
+      <h3>Это ты, Инкар?</h3>
+      <p>Введи пароль чтобы написать о себе</p>
+      <div class="input-row">
+        <input type="password" id="pwInput" placeholder="пароль" onkeydown="if(event.key==='Enter')tryLogin()"/>
+        <button class="btn btn-sm" onclick="tryLogin()">Войти</button>
+      </div>
+      <div class="error-msg" id="loginError"></div>
+    </div>
+
+    <div class="logged-in" id="loggedInForm">
+      <h3>Привет, Инкар ✦</h3>
+      <p>Напиши что-нибудь о себе</p>
+      <textarea id="commentInput" placeholder="Напиши что думаешь о себе..."></textarea>
+      <button class="btn" onclick="submitComment()">Опубликовать</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Инкар ✦ Сделано с теплом
+</footer>
+
+<script>
+const PASSWORD = 'inkar2025';
+const STORAGE_KEY = 'inkar_comments';
+
+function tryLogin() {
+  const val = document.getElementById('pwInput').value;
+  if (val === PASSWORD) {
+    document.getElementById('loginForm').classList.add('hide');
+    document.getElementById('loggedInForm').classList.add('show');
+    document.getElementById('loginError').textContent = '';
+  } else {
+    document.getElementById('loginError').textContent = 'Неверный пароль';
+    document.getElementById('pwInput').value = '';
+  }
+}
+
+function submitComment() {
+  const text = document.getElementById('commentInput').value.trim();
+  if (!text) return;
+
+  const comments = getComments();
+  comments.push({
+    text,
+    date: new Date().toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })
+  });
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
+  document.getElementById('commentInput').value = '';
+  renderComments();
+}
+
+function getComments() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+  catch { return []; }
+}
+
+function renderComments() {
+  const list = document.getElementById('commentsList');
+  const comments = getComments();
+  if (comments.length === 0) {
+    list.innerHTML = '<p class="no-comments">Инкар ещё ничего не написала...</p>';
+    return;
+  }
+  list.innerHTML = comments.map(c => `
+    <div class="comment-card">
+      <div class="comment-author">Инкар ✦</div>
+      <div class="comment-text">${c.text}</div>
+      <div class="comment-date">${c.date}</div>
+    </div>
+  `).join('');
+}
+
+renderComments();
+</script>
+</body>
+</html>
